@@ -1,3 +1,18 @@
-<p>reservation-list works!</p>
-<button [routerLink]="['']" >Navigate to Home</button>
-<button [routerLink]="['reservation/form']" >Navigate to Form</button>
+<h2>Reservation List</h2>
+
+<ul *ngIf="reservations.length != 0; else noReservation">
+    <li *ngFor="let r of reservations">
+        {{r.guestName}}<br>
+        {{r.guestEmail}}<br>
+        {{r.roomNumber}}<br>
+        {{r.checkInDate}}<br>
+        {{r.checkOutDate}}
+    </li>
+</ul>
+
+<ng-template #noReservation>
+    <p>No reservations</p>
+</ng-template>
+
+<button [routerLink]="['']" >Home</button>
+<button [routerLink]="['/reservation/new']" >Form</button>

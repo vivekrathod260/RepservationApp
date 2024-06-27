@@ -1,3 +1,33 @@
-<p>reservation-form works!</p>
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>Check-In Date :</label>
+        <div *ngIf="this.reservationForm.get('checkInDate')?.invalid && this.reservationForm.get('checkInDate')?.touched">(Required)</div>
+        <input type="date" formControlName="checkInDate">
+        
+    </div>
+    <div>
+        <label>Check-Out Date :</label>
+        <div *ngIf="this.reservationForm.get('checkOutDate')?.invalid && this.reservationForm.get('checkOutDate')?.touched">(Required)</div>
+        <input type="date" formControlName="checkOutDate">
+    </div>
+    <div>
+        <label>Guest Name :</label>
+        <div *ngIf="this.reservationForm.get('guestName')?.invalid && this.reservationForm.get('guestName')?.touched">(Required)</div>
+        <input type="text" formControlName="guestName">
+    </div>
+    <div>
+        <label>Guest Email :</label>
+        <div *ngIf="this.reservationForm.get('guestEmail')?.invalid && this.reservationForm.get('guestEmail')?.touched">(Required)</div>
+        <input type="email" formControlName="guestEmail">
+    </div>
+    <div>
+        <label>Room Number :</label>
+        <div *ngIf="this.reservationForm.get('roomNumber')?.invalid && this.reservationForm.get('roomNumber')?.touched">(Required)</div>
+        <input type="number" formControlName="roomNumber">
+    </div>
+    <button type="submit" [disabled]="!reservationForm.valid">Submit</button>
+</form>
+
+
 <button [routerLink]="['']" >Home</button>
-<button [routerLink]="['reservation/list']" >Navigate to List</button>
+<button [routerLink]="['/reservation/list']" >List</button>

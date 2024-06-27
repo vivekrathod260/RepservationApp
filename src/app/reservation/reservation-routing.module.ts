@@ -5,7 +5,7 @@ import { ReservationFormComponent } from './reservation-form/reservation-form.co
 
 const routes: Routes = [
   { path: 'list', component: ReservationListComponent },
-  { path: 'form', component: ReservationFormComponent },
+  { path: 'new', component: ReservationFormComponent },
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: '**', redirectTo: 'list' }
 ]
